@@ -126,8 +126,8 @@ dockercomposeexample-db-1   | 2023-08-18 20:34:47.034 UTC [1] LOG:  database sys
   ![image](https://github.com/MuhammadAli68/DockerComposeExample/assets/57432644/5c1e6805-15b5-4f18-8a57-65ced815a4e2)
   ![image](https://github.com/MuhammadAli68/DockerComposeExample/assets/57432644/a76710ed-b052-415c-981b-287603afc647)
 + Similarly we can open The other web servers to show scaling:
-  ![image](https://github.com/MuhammadAli68/DockerComposeExample/assets/57432644/18c948a6-2894-4d22-b6e9-372c019043d1)
-  ![image](https://github.com/MuhammadAli68/DockerComposeExample/assets/57432644/22f408ad-5840-4c59-9c44-b2e97eef9353)
+  - ![image](https://github.com/MuhammadAli68/DockerComposeExample/assets/57432644/18c948a6-2894-4d22-b6e9-372c019043d1)
+  - ![image](https://github.com/MuhammadAli68/DockerComposeExample/assets/57432644/22f408ad-5840-4c59-9c44-b2e97eef9353)
 + Head over to docker client and then volumes. There you will see 2 volumes named db-data and db-backups
   ![image](https://github.com/MuhammadAli68/DockerComposeExample/assets/57432644/4b49df59-1cfc-46b5-b6c9-555a6938d421)
 + The db-data holds the database data persistently
