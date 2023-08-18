@@ -24,14 +24,14 @@ services:
       - db-data:/var/lib/postgresql/data # volume for holding the postgreSQL database data persistently
       - db-backups:/backups  # Volume for backups
 
-  prometheus:
-    image: prom/prometheus
-    ports:
-      - 9090:9090
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
+  # prometheus:
+  #   image: prom/prometheus
+  #   ports:
+  #     - 9090:9090
+  #   volumes:
+  #     - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  #   command:
+  #     - '--config.file=/etc/prometheus/prometheus.yml'
 
   # grafana:
   #   image: grafana/grafana
