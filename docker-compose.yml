@@ -1,0 +1,44 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "3000"    #"3000:3000"
+    depends_on:
+      - db
+    # Additional configuration for scaling
+    deploy:
+      replicas: 3  # Adjust the desired number of replicas
+
+  db:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+      args:
+        - BACKUP_SCRIPT=backup.sh # Copies the shell script for Backup into the Dockerfile of db
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: S0me!P@sswD1
+    volumes:
+      - db-data:/var/lib/postgresql/data # volume for holding the postgreSQL database data persistently
+      - db-backups:/backups  # Volume for backups
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+
+  # grafana:
+  #   image: grafana/grafana
+  #   ports:
+  #     - "4000:3000"
+
+# Volumes for database and backups
+volumes:
+  db-data:
+  db-backups:
